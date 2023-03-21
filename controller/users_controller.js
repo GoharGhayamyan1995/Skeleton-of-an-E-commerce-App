@@ -27,8 +27,6 @@ function login (req, res) {
   db.get(sql,[name], function(err, row){
       console.log(row);
     if(name == row.name && hashed_password == row.password) {
-      //  const user_id = this.lastID;
-      //       create_cart_for_user(user_id,res);
         res.send(JSON.stringify({status: "Logged in",jwt:token}));
     }else {
         res.send(JSON.stringify({status: "Wrong credentials"}));
